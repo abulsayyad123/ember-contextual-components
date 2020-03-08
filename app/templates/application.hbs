@@ -1,5 +1,14 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+{{#custom-form/ui-form onSubmit=(action "save") as |form|}}
+  {{#form.label}}
+    User Name:
+  {{/form.label}}
+  {{form.input placeholder="my input" value=name}}
 
-{{outlet}}
+  {{#custom-form/ui-button onClick=(action (mut name) "")}}
+    Reset
+  {{/custom-form/ui-button}}
+
+  {{#form.submit}}
+    save
+  {{/form.submit}}
+{{/custom-form/ui-form}}
